@@ -2,7 +2,7 @@
 <head>
     <!-- IMPORT CUSTOM RHILOUX HTML/LIQUID CODE (START) -->
     {%- liquid
-    	if canonical_url contains '7e09464d'
+    	if canonical_url contains '7e09464d' or canonical_url contains 'natal-art-generator'
 			render 'rhiloux-head'
 	    endif
     -%}
@@ -12,7 +12,7 @@
 
 <body>
     <!-- IMPORT CUSTOM RHILOUX JS CODE (START) -->
-    {%- if canonical_url contains '7e09464d' -%}
+    {%- if canonical_url contains '7e09464d' or canonical_url contains 'natal-art-generator' -%}
       <script type="module" src="{{ 'rhiloux-foot.js' | asset_url }}"></script>
 <!--       <script type="module" src="{{ 'rhiloux-art-sets.js' | asset_url }}"></script> -->
 <!--       <script type="module" src="{{ 'rhiloux-symbol-sets.js' | asset_url }}"></script> -->

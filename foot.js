@@ -19,15 +19,14 @@ $(function() {
   $('#preview_form').hide();
 
   // Init global variables
-  // @TODO - REVERT AFTER TESTING
   let selectedArtSet,
     submissionCount = 0,
-    birthCity = 'Houston',//null,
-    birthState = 'Texas',//null,
-    birthCountry = 'USA',//null,
-    birthLatitude = '29.7604',//null,
-    birthLongitude = '-95.3698',//null,
-    birthTimezone = null,
+    birthCity = undefined,
+    birthState = undefined,
+    birthCountry = undefined,
+    birthLatitude = undefined,
+    birthLongitude = undefined,
+    birthTimezone = undefined,
     months = {
       1: 'January',
       2: 'February',
@@ -49,11 +48,10 @@ $(function() {
   //////////////////
 
   // Birth Data Form on Submit -- START
-  // @TODO - REVERT AFTER TESTING
   $('#rhiloux_form').submit(function(event) {
     event.preventDefault();
     submissionCount++;
-    getAstrologyData(); //getSelectedLocationData();
+    getSelectedLocationData();
   });
   // Birth Data Form on Submit -- END
 
@@ -107,6 +105,18 @@ $(function() {
   // Select frame color -- START
   $('#frame_type').change(function() {
     switch ($(this).val()) {
+      case 'gold':
+        $('#rhiloux_chart-frame').css({
+          'background-color': '#e6c687',
+          'border-color': '#dbaf63 #d19e45'
+        });
+        break;
+      case 'silver':
+        $('#rhiloux_chart-frame').css({
+          'background-color': '#EBEBEB',
+          'border-color': '#D5D6D7 #C5C7C8'
+        });
+        break;
       case 'white':
         $('#rhiloux_chart-frame').css({
           'background-color': '#ddc',
@@ -119,7 +129,7 @@ $(function() {
           'border-color': '#E4C39D #E8C9AB'
         });
         break;
-      default:
+      default: // black
         $('#rhiloux_chart-frame').css({
           'background-color': '#334',
           'border-color': '#333 #222'
@@ -345,7 +355,6 @@ $(function() {
   } // Get custom symbols -- END
 
   // Get astrology data -- START
-  // @TODO - REVERT AFTER TESTING
   function getAstrologyData() {
     let myData = { 'planets': {}, 'cusps': [] },
       mySigns = [],
@@ -360,22 +369,22 @@ $(function() {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       data: {
-        'day': "4",
-        'month': "9",
-        'year': "1981",
-        'hour': "10",
-        'min': "00",
-        'lat': "29.7604",
-        'lon': "-95.3698",
-        'tzone': "-5"
-        // 'day': $('#birth_day').val(),
-        // 'month': $('#birth_month').val(),
-        // 'year': $('#birth_year').val(),
-        // 'hour': $('#birth_ampm').val() === 'PM' ? parseInt($('#birth_hour').val()) + 12 : $('#birth_hour').val(),
-        // 'min': $('#birth_minute').val(),
-        // 'lat': birthLatitude,
-        // 'lon': birthLongitude,
-        // 'tzone': birthTimezone,
+        // 'day': "4",
+        // 'month': "9",
+        // 'year': "1981",
+        // 'hour': "10",
+        // 'min': "00",
+        // 'lat': "29.7604",
+        // 'lon': "-95.3698",
+        // 'tzone': "-5"
+        'day': $('#birth_day').val(),
+        'month': $('#birth_month').val(),
+        'year': $('#birth_year').val(),
+        'hour': $('#birth_ampm').val() === 'PM' ? parseInt($('#birth_hour').val()) + 12 : $('#birth_hour').val(),
+        'min': $('#birth_minute').val(),
+        'lat': birthLatitude,
+        'lon': birthLongitude,
+        'tzone': birthTimezone,
       }
     }).done(function(response) {
       // Get Planets
@@ -429,7 +438,6 @@ $(function() {
   } // Get astrology data -- END
   
   // Update astrology data -- START
-  // @TODO - REVERT AFTER TESTING
   function updateAstrologyData(settings) {
     let myData = { 'planets': {}, 'cusps': [] };
 
@@ -442,22 +450,22 @@ $(function() {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       data: {
-        'day': "4",
-        'month': "9",
-        'year': "1981",
-        'hour': "10",
-        'min': "00",
-        'lat': "29.7604",
-        'lon': "-95.3698",
-        'tzone': "-5"
-        // 'day': $('#birth_day').val(),
-        // 'month': $('#birth_month').val(),
-        // 'year': $('#birth_year').val(),
-        // 'hour': $('#birth_ampm').val() === 'PM' ? parseInt($('#birth_hour').val()) + 12 : $('#birth_hour').val(),
-        // 'min': $('#birth_minute').val(),
-        // 'lat': birthLatitude,
-        // 'lon': birthLongitude,
-        // 'tzone': birthTimezone,
+        // 'day': "4",
+        // 'month': "9",
+        // 'year': "1981",
+        // 'hour': "10",
+        // 'min': "00",
+        // 'lat': "29.7604",
+        // 'lon': "-95.3698",
+        // 'tzone': "-5"
+        'day': $('#birth_day').val(),
+        'month': $('#birth_month').val(),
+        'year': $('#birth_year').val(),
+        'hour': $('#birth_ampm').val() === 'PM' ? parseInt($('#birth_hour').val()) + 12 : $('#birth_hour').val(),
+        'min': $('#birth_minute').val(),
+        'lat': birthLatitude,
+        'lon': birthLongitude,
+        'tzone': birthTimezone,
       }
     }).done(function(response) {
       // Get Planets
@@ -486,14 +494,13 @@ $(function() {
   } // Update astrology data -- END
 
   // Get formatted birth time -- START
-  // @TODO - REVERT AFTER TESTING
   function getFormattedBirthTime(format) {
-    const bMonth = 'September',//months[parseInt($('#birth_month').val())],
-        bDay = '4',//$('#birth_day').val(),
-        bYear = '1981',//$('#birth_year').val(),
-        bHour = '10',//$('#birth_hour').val(),
-        bMinute = '00',//$('#birth_minute').val(),
-        bMeridiem = 'AM';//$('#birth_ampm').val();
+    const bMonth = months[parseInt($('#birth_month').val())],
+        bDay = $('#birth_day').val(),
+        bYear = $('#birth_year').val(),
+        bHour = $('#birth_hour').val(),
+        bMinute = $('#birth_minute').val(),
+        bMeridiem = $('#birth_ampm').val();
     if (format == 'western') {
       return bMonth+' '+bDay+', '+bYear+' '+bHour+':'+bMinute+bMeridiem;
     } else if (format == 'eastern') {
