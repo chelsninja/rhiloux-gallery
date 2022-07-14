@@ -1,0 +1,144 @@
+/******************
+** RHILOUX FORMS **
+*******************/
+
+#rhiloux_form_wrapper {
+  padding-left: 10vw;
+  padding-right: 2vw;
+}
+
+#rhiloux_form_wrapper fieldset {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 10px 15px;
+  border: 1px solid #939AA7;
+}
+
+#rhiloux_form_wrapper input,
+#rhiloux_form_wrapper select {
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 40px;
+  border: 2px solid #2d2d2d;
+  height: 40px;
+  padding: 0 10px;
+}
+
+#rhiloux_form_wrapper .caption {
+  padding-top: 5px;
+}
+
+
+/***********************
+** RHILOUX BIRTH FORM **
+************************/
+
+#rhiloux_form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+fieldset#date_set,
+fieldset#time_set {
+  width: 49%;
+}
+
+fieldset#location_set {
+  width: 75%;
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+
+#rhiloux_form legend {
+  padding: 0 5px;
+}
+
+#rhiloux_form label {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+fieldset#location_set label {
+  width: 100%;
+}
+
+#rhiloux_form input[type="number"] {
+  padding-right: 0;
+}
+
+#rhiloux_form select {
+  width: 30%;
+}
+
+#rhiloux_form .button {
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+
+/*************************
+** RHILOUX PREVIEW FORM **
+**************************/
+
+#preview_form {
+  position: relative;
+  top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px dashed #D8B67D;
+  padding: 15px 24px 24px;
+  margin-top: 36px
+}
+
+#preview_form > legend {
+  position: absolute;
+  top: -15px;
+  left: 12px;
+  background-color: rgba(216, 182, 125, 0.9);
+  padding: 0 10px;
+  line-height: 30px;
+  font-size: small;
+  letter-spacing: 1px;
+}
+
+#preview_form fieldset {
+  margin-top: 20px;
+}
+
+fieldset#artist_set,
+fieldset#textPosition_set,
+fieldset#textFormat_set {
+  width: 100%;
+}
+
+fieldset#frameType_set,
+fieldset#frameSize_set,
+fieldset#name_set,
+fieldset#fontFamily_set {
+  width: 49%;
+  padding-bottom: 20px;
+}
+
+#preview_form label {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
+#preview_form select,
+#preview_form input {
+  width: 100%;
+}
+
+#preview_form .option {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin: 0;
+}

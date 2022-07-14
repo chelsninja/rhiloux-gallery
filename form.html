@@ -1,0 +1,165 @@
+<!-- HTML CODE (START) -->
+<div id="rhiloux_form_wrapper">
+  
+  <!-- PREVIEW GENERATOR (FORM) -->
+  <form id="rhiloux_form">
+
+    <!-- BIRTH DATE (FIELDSET) -->
+    <fieldset id="date_set">
+      <legend>Birth Date<span>*</span></legend>
+      <label for="birth_month">
+        <input id="birth_month" type="number" min="1" max="12" minlength="1" maxlength="2" data-title="Month">
+        <!-- <select id="birth_month" data-title="Month">
+          <option value="1">JAN</option>
+          <option value="2">FEB</option>
+          <option value="3">MAR</option>
+          <option value="4">APR</option>
+          <option value="5">MAY</option>
+          <option value="6">JUN</option>
+          <option value="7">JUL</option>
+          <option value="8">AUG</option>
+          <option value="9">SEP</option>
+          <option value="10">OCT</option>
+          <option value="11">NOV</option>
+          <option value="12">DEC</option>
+        </select> -->
+        <span class="caption">MONTH</span>
+      </label>
+      <label for="birth_day">
+        <input id="birth_day" type="number" min="1" max="31" minlength="1" maxlength="2" data-title="Day">
+        <span class="caption">DAY</span>
+      </label>
+      <label for="birth_year">
+        <input id="birth_year" type="number" min="1821" max="2021" minlength="4" maxlength="4" data-title="Year">
+        <span class="caption">YEAR</span>
+      </label>
+    </fieldset>
+
+    <!-- BIRTH TIME (FIELDSET) -->
+    <fieldset id="time_set">
+      <legend>Birth Time<span>*</span></legend>
+      <label for="birth_hour">
+        <input id="birth_hour" type="number" min="1" max="12" minlength="1" maxlength="2" data-title="Hour">
+        <span class="caption">HOUR</span>
+      </label>
+      <label for="birth_minute">
+        <input id="birth_minute" type="number" min="00" max="59" minlength="2" maxlength="2" data-title="Minute">
+        <span class="caption">MINUTE</span>
+      </label>
+      <select id="birth_ampm" data-title="Ampm">
+        <option value="AM">AM</option>
+        <option value="PM">PM</option>
+      </select>
+    </fieldset>
+
+    <!-- BIRTH LOCATION (FIELDSET) -->
+    <fieldset id="location_set">
+      <legend>Birth Location<span>*</span></legend>
+      <label for="birth_location" class="ui-front">
+        <input id="birth_location" type="text" placeholder="Search by city...">
+      </label>
+    </fieldset>
+
+    <!-- PREVIEW GENERATOR (SUBMIT) -->
+    <button type="submit" class="button">Preview</button>
+  </form>
+
+
+  <!-- PREVIEW CUSTOMIZATION (FORM) -->
+  <form id="preview_form">
+    <legend>CUSTOMIZE</legend>
+
+    <!-- ARTIST / ART SET (FIELDSET) -->
+    <fieldset id="artist_set">
+      <legend>Art Set<span>*</span></legend>
+      <select id="art_set">
+        <option data-artist="Alex Burden" value="Astral Cairns">Astral Cairns by Alex Burden</option>
+        <option data-artist="Roving Stars" value="Cosmic Duality">Cosmic Duality by Roving Stars</option>
+        <option data-artist="LUNARLILT" value="Cosmic Serpent">Cosmic Serpent by LUNARLILT</option>
+        <option data-artist="Sun Keep" value="Flow">Flow by Sun Keep</option>
+        <option data-artist="Ciao Zen" value="Magic Within You">Magic Within You by Ciao Zen</option>
+        <option data-artist="Sierra Rose Creative" value="Vision Rising">Vision Rising by Sierra Rose Creative</option>
+        <option data-artist="Cosmic Collage" value="Water Portal">Water Portal by Cosmic Collage</option>
+        <option data-artist="Creative Powerr" value="Connected With The Cosmos">Connected With The Cosmos by Creative Powerr</option>
+      </select>
+    </fieldset>
+
+    <!-- FRAME TYPE (FIELDSET) -->
+    <fieldset id="frameType_set">
+      <legend>Frame Type<span>*</span></legend>
+      <select id="frame_type">
+        <option value="black">Black</option>
+        <option value="white">White</option>
+        <option value="wood">Wood</option>
+      </select>
+    </fieldset>
+
+    <!-- FRAME SIZE (FIELDSET) -->
+    <fieldset id="frameSize_set">
+      <legend>Frame Size<span>*</span></legend>
+      <select id="frame_size">
+        <option value="12x18">12x18 inch (2:3 ratio)</option>
+        <option value="18x24" selected>18x24 inch (3:4 ratio)</option>
+        <option value="20x30">20x30 inch (2:3 ratio)</option>
+      </select>
+    </fieldset>
+
+    <!-- DISPLAY NAME (FIELDSET) -->
+    <fieldset id="name_set">
+      <legend>Display Name</legend>
+      <input id="birth_name" type="text">
+    </fieldset>
+
+    <!-- FONT FAMILY (FIELDSET) -->
+    <fieldset id="fontFamily_set">
+      <legend>Font Family<span>*</span></legend>
+      <select id="font_family">
+        <option value="type1" selected>Type 1</option>
+      </select>
+    </fieldset>    
+
+    <!-- TEXT POSITION (FIELDSET) -->
+    <fieldset id="textPosition_set">
+      <legend>Text Position</legend>
+      <label for="name_position">
+        <select id="name_position">
+          <option value="none">None</option>
+          <option value="top-center">Top Center</option>
+          <option value="bottom">Bottom</option>
+        </select>
+        <span class="caption">NAME</span>
+      </label>
+      <label for="location-time_position">
+        <select id="location-time_position">
+          <option value="none">None</option>
+          <option value="bottom-center">Bottom Center</option>
+          <option value="bottom-left">Bottom Left</option>
+          <option value="bottom-right">Bottom Right</option>
+        </select>
+        <span class="caption">LOCATION & DATETIME</span>
+      </label>
+    </fieldset>
+
+    <!-- TEXT FORMAT (FIELDSET) -->
+    <fieldset id="textFormat_set">
+      <legend>Text Format</legend>
+      <label for="location_format">
+        <select id="location_format">
+          <option value="city-state">City, State</option>
+          <option value="city-state-country">City, State, Country</option>
+          <option value="lat-long">Latitude, Longitude</option>
+          </select>
+        <span class="caption">LOCATION</span>
+      </label>
+      <label for="time_format">
+        <select id="time_format">
+          <option value="western">Western</option>
+          <option value="eastern">Eastern</option>
+          </select>
+        <span class="caption">DATETIME</span>
+      </label>
+    </fieldset>
+
+  </form>
+</div>
+<!-- HTML CODE (START) -->

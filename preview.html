@@ -1,0 +1,129 @@
+<!-- HTML CODE (START) -->
+<div id="rhiloux_chart-frame">
+  <div id="rhiloux_chart"></div>
+</div>
+<!-- HTML CODE (END) -->
+
+<!-- 
+(bleed) 1/4 inch // 300 pixels
+(small) 12x18 inch // 2:3 // 3600 x 5400 pixels
+(default) 18x24 inch // 3:4 // 5400 x 7200 pixels
+(large) 20x30 inch // 2:3 // 6000 x 9000 pixels
+-->
+
+<!-- CSS CODE (START) -->
+<!-- @todo - restyle text areas -->
+<style>
+  /* FRAME */
+
+  #rhiloux_chart-frame {
+    width: 540px;
+    height: 720px;
+    background-color: #334;
+    border-color: #333 #222;
+    border-width: 5vmin;
+    border-style: solid;
+    border-radius: 2px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .25) inset, 
+      0 5px 10px 5px rgba(0, 0, 0, .25);
+    position: relative;
+  }
+
+  #rhiloux_chart-frame.small {
+    width: 360px;
+    height: 540px;
+  }
+
+  #rhiloux_chart-frame.large {
+    width: 600px;
+    height: 900px;
+  }
+
+  #rhiloux_chart-frame:before {
+    border-radius: 2px;
+    bottom: -2vmin;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25) inset;
+    content: "";
+    left: -2vmin;
+    position: absolute;
+    right: -2vmin;
+    top: -2vmin;
+  }
+
+  #rhiloux_chart-frame:after {
+    border-radius: 2px;
+    bottom: -2.5vmin;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .25);
+    content: "";
+    left: -2.5vmin;
+    position: absolute;
+    right: -2.5vmin;
+    top: -2.5vmin;
+  }
+
+  /* CHART */
+
+  #rhiloux_chart {
+    position: relative;
+    background-image: url("https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Rhiloux_Sample_3_4.png?v=1652822898");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #rhiloux_chart-astrology-radix-planets text {
+    display: none;
+  }
+
+  /* TEXT */
+
+  #rhiloux_chart h2,
+  #rhiloux_chart h3 {
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    font-family: inherit;
+    color: inherit;
+  }
+
+  #rhiloux_chart h2 {
+    font-size: 1.9em;
+  }
+  #rhiloux_chart h2.p--top-center {
+    top: 9%;
+    text-align: center;
+  }
+  #rhiloux_chart h2.p--bottom-center,
+  #rhiloux_chart h2.p--bottom-left,
+  #rhiloux_chart h2.p--bottom-right {
+    bottom: 11%;
+  }
+
+  #rhiloux_chart h3 {
+    font-size: 1.3em;
+  }
+  #rhiloux_chart h3:first-of-type {
+    bottom: 3%;
+  }
+  #rhiloux_chart h3 + h3 {
+    bottom: 7%;
+  }
+
+  .p--bottom-center {
+    text-align: center;
+  }
+  .p--bottom-left {
+    text-align: left;
+    left: 20px;
+  }
+  .p--bottom-right {
+    text-align: right;
+    right: 20px;
+  }
+</style>
+<!-- CSS CODE (END) -->

@@ -1,0 +1,21 @@
+    
+<head>
+    <!-- IMPORT CUSTOM RHILOUX HTML/LIQUID CODE (START) -->
+    {%- liquid
+    	if canonical_url contains '7e09464d'
+			render 'rhiloux-head'
+	    endif
+    -%}
+    <!-- IMPORT CUSTOM RHILOUX HTML/LIQUID CODE (END) -->
+</head>
+
+
+<body>
+    <!-- IMPORT CUSTOM RHILOUX JS CODE (START) -->
+    {%- if canonical_url contains '7e09464d' -%}
+      <script type="module" src="{{ 'rhiloux-foot.js' | asset_url }}"></script>
+<!--       <script type="module" src="{{ 'rhiloux-art-sets.js' | asset_url }}"></script> -->
+<!--       <script type="module" src="{{ 'rhiloux-symbol-sets.js' | asset_url }}"></script> -->
+	{%- endif -%}
+    <!-- IMPORT CUSTOM RHILOUX JS CODE (END) -->
+</body>
