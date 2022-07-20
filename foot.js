@@ -104,6 +104,7 @@ $(function() {
 
   // Select frame color -- START
   $('#frame_type').change(function() {
+    $('#rhiloux_chart-frame').removeClass('no-frame');
     switch ($(this).val()) {
       case 'gold':
         $('#rhiloux_chart-frame').css({
@@ -129,11 +130,14 @@ $(function() {
           'border-color': '#E4C39D #E8C9AB'
         });
         break;
-      default: // black
+      case 'black':
         $('#rhiloux_chart-frame').css({
           'background-color': '#334',
           'border-color': '#333 #222'
         });
+        break;
+      default:
+        $('#rhiloux_chart-frame').addClass('no-frame');
         break;
     }
   });
