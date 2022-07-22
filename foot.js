@@ -5,6 +5,12 @@ import {
 } from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-art-sets.js?v=100747335448040002801655782575';
 
 import {
+  getFrameSizePrice,
+  getFrameTypePrice,
+  getQuotePrice
+} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-price-sets.js?v=135663510210217060211658455887';
+
+import {
   getSymbolSet,
   getSymbolUrl
 } from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-symbol-sets.js?v=171852452592477723991655438074';
@@ -52,6 +58,7 @@ $(function() {
     event.preventDefault();
     submissionCount++;
     getSelectedLocationData();
+    updateRhilouxPricing();
   });
   // Birth Data Form on Submit -- END
 
@@ -104,6 +111,7 @@ $(function() {
 
   // Select frame color -- START
   $('#frame_type').change(function() {
+    updateRhilouxPricing();
     $('#rhiloux_chart-frame').removeClass('no-frame');
     switch ($(this).val()) {
       case 'gold':
@@ -145,8 +153,9 @@ $(function() {
 
   // Select frame size -- START
   $('#frame_size').change(function() {
+    updateRhilouxPricing();
     switch ($(this).val()) {
-      case '12x18':
+      case 'small':
         $('#rhiloux_chart-frame').removeClass('large');	
         $('#rhiloux_chart-frame').addClass('small');
         $('#rhiloux_chart').css({
@@ -154,7 +163,7 @@ $(function() {
         });
         break;
         
-      case '18x24':
+      case 'medium':
         $('#rhiloux_chart-frame').removeClass('small');	
         $('#rhiloux_chart-frame').removeClass('large');
         $('#rhiloux_chart').css({
@@ -162,7 +171,7 @@ $(function() {
         });
         break;
         
-      case '20x30':
+      case 'large':
         $('#rhiloux_chart-frame').removeClass('small');	
         $('#rhiloux_chart-frame').addClass('large');
         $('#rhiloux_chart').css({
@@ -231,6 +240,7 @@ $(function() {
     });
     $('#frame_type').val(selectedArtSet.frame);
     $('#frame_type').change();
+    updateRhilouxPricing();
   });
   // Select art set -- END
 
@@ -515,19 +525,41 @@ $(function() {
 
   // Get formatted birth location -- START
   function getFormattedBirthLocation(format) {
+    let birthLocationFormatted;
     switch (format) {
       case 'city-state':
-        return birthCity+', '+birthState;
+        birthLocationFormatted = birthCity+', '+birthState;
         break;
         
       case 'city-state-country':
-        return birthCity+', '+birthState+', '+birthCountry;
+        birthLocationFormatted = birthCity+', '+birthState+', '+birthCountry;
         break;
 
       case 'lat-long':
-        return birthLatitude+', '+birthLongitude;
+        birthLocationFormatted = birthLatitude+', '+birthLongitude;
         break;
     }
+    return birthLocationFormatted;
   } // Get formatted birth location -- END
+
+  // Update itemized quote pricing -- START
+  function updateRhilouxPricing() {
+    const frameSize = $('#frame_size').val(),
+          frameType = $('#frame_type').val(),
+          frameSizeTxt = $('#frame_size option:selected').text(),
+          frameTypeTxt = $('#frame_type option:selected').text(),
+          sizeLabelEl = $('#size_label'),
+          typeLabelEl = $('#type_label'),
+          sizePriceEl = $('#size_price'),
+          typePriceEl = $('#type_price'),
+          quotePriceEl = $('#quote_price');
+
+    sizeLabelEl.text(frameSizeTxt);
+    typeLabelEl.text(frameTypeTxt);
+    sizePriceEl.text(getFrameSizePrice(frameSize));
+    typePriceEl.text(getFrameTypePrice(frameSize, frameType));
+    quotePriceEl.text(getQuotePrice(frameSize, frameType));
+  }
+  // Update itemized quote pricing -- END
 
 });

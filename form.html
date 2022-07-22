@@ -9,20 +9,6 @@
       <legend>Birth Date<span>*</span></legend>
       <label for="birth_month">
         <input id="birth_month" type="number" min="1" max="12" minlength="1" maxlength="2" data-title="Month">
-        <!-- <select id="birth_month" data-title="Month">
-          <option value="1">JAN</option>
-          <option value="2">FEB</option>
-          <option value="3">MAR</option>
-          <option value="4">APR</option>
-          <option value="5">MAY</option>
-          <option value="6">JUN</option>
-          <option value="7">JUL</option>
-          <option value="8">AUG</option>
-          <option value="9">SEP</option>
-          <option value="10">OCT</option>
-          <option value="11">NOV</option>
-          <option value="12">DEC</option>
-        </select> -->
         <span class="caption">MONTH</span>
       </label>
       <label for="birth_day">
@@ -88,9 +74,9 @@
     <fieldset id="frameSize_set">
       <legend>Frame Size<span>*</span></legend>
       <select id="frame_size">
-        <option value="12x18">Small (12x18 inch / 2:3 ratio)</option>
-        <option value="18x24" selected>Medium (18x24 inch / 3:4 ratio)</option>
-        <option value="20x30">Large (20x30 inch / 2:3 ratio)</option>
+        <option value="small">Small (12x18 inch / 2:3 ratio)</option>
+        <option value="medium" selected>Medium (18x24 inch / 3:4 ratio)</option>
+        <option value="large">Large (20x30 inch / 2:3 ratio)</option>
       </select>
     </fieldset>
 
@@ -98,16 +84,16 @@
     <fieldset id="frameType_set">
       <legend>Frame Type<span>*</span></legend>
       <select id="frame_type">
-        <option value="black">Black Flat</option>
-        <option value="black">Bronze Ornate</option>
-        <option value="wood">Espresso Rustic</option>
-        <option value="wood">Espresso Walnut</option>
-        <option value="gold">Gold Flat</option>
-        <option value="gold">Gold Accent</option>
-        <option value="silver">Silver Flat</option>
-        <option value="silver">Silver Curved</option>
-        <option value="white">White Flat</option>
-        <option value="white">White Rustic</option>
+        <option value="black">Black Flat (tier 1)</option>
+        <option value="black">Bronze Ornate (tier 1)</option>
+        <option value="wood">Espresso Rustic (tier 2)</option>
+        <option value="wood">Espresso Walnut (tier 2)</option>
+        <option value="gold">Gold Flat Metal (tier 1)</option>
+        <option value="gold">Gold Accent (tier 1)</option>
+        <option value="silver">Silver Flat Metal (tier 1)</option>
+        <option value="silver">Silver Curved (tier 1)</option>
+        <option value="white">White Flat (tier 2)</option>
+        <option value="white">White Rustic (tier 2)</option>
         <option value="none">Giclée (print only / no frame)</option>
       </select>
     </fieldset>
@@ -169,5 +155,30 @@
     </fieldset>
 
   </form>
+  
+  
+  <!-- CHECKOUT QUOTE (TABLE) -->
+  <div id="rhiloux_checkout-table">
+    <table>
+      <tbody>
+        <tr>
+          <th><span>Frame Size :</span></th>
+          <td><span id="size_label">—</span></td>
+          <td><span id="size_price">$ —</span></td>
+        </tr>
+        <tr>
+          <th><span>Frame Type :</span></th>
+          <td><span id="type_label">—</span></td>
+          <td><span id="type_price">$ —</span></td>
+        </tr>
+        <tr class="footer-row">
+          <th><span>Art Quote :</span></th>
+          <td><span></span></td>
+          <th><span id="quote_price">$ —</span></th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
-<!-- HTML CODE (START) -->
+<!-- HTML CODE (END) -->
