@@ -2,13 +2,14 @@ import {
   getArtist,
   getArtListByElement,
   getArtSet,
-} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-art-sets.js?v=100747335448040002801655782575';
+} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-art-sets.js?v=9468345930451116111658874497';
 
 import {
   getFrameSizePrice,
+  getFrameSource,
   getFrameTypePrice,
   getQuotePrice
-} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-price-sets.js?v=135663510210217060211658455887';
+} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-price-sets.js?v=68041966682066295791658870259';
 
 import {
   getSymbolSet,
@@ -111,70 +112,48 @@ $(function() {
 
   // Select frame color -- START
   $('#frame_type').change(function() {
+    const frameEl = $('#rhiloux_chart-frame');
+    let frameSrc = getFrameSource($(this).val());
+
     updateRhilouxPricing();
-    $('#rhiloux_chart-frame').removeClass('no-frame');
-    switch ($(this).val()) {
-      case 'gold':
-        $('#rhiloux_chart-frame').css({
-          'background-color': '#e6c687',
-          'border-color': '#dbaf63 #d19e45'
-        });
-        break;
-      case 'silver':
-        $('#rhiloux_chart-frame').css({
-          'background-color': '#EBEBEB',
-          'border-color': '#D5D6D7 #C5C7C8'
-        });
-        break;
-      case 'white':
-        $('#rhiloux_chart-frame').css({
-          'background-color': '#ddc',
-          'border-color': '#f5f5f5 #eee'
-        });
-        break;
-      case 'wood':
-        $('#rhiloux_chart-frame').css({
-          'background-color': '#E0BC8F',
-          'border-color': '#E4C39D #E8C9AB'
-        });
-        break;
-      case 'black':
-        $('#rhiloux_chart-frame').css({
-          'background-color': '#334',
-          'border-color': '#333 #222'
-        });
-        break;
-      default:
-        $('#rhiloux_chart-frame').addClass('no-frame');
-        break;
+    frameEl.removeClass('no-frame');
+
+    if (frameSrc) {
+      frameEl.css({'border-image-source': 'url("'+frameSrc+'")'});
+    } else {
+      frameEl.addClass('no-frame');
     }
   });
   // Select frame color -- END
 
   // Select frame size -- START
   $('#frame_size').change(function() {
+    const frameEl = $('#rhiloux_chart-frame');
+    const chartEl = $('#rhiloux_chart');
+
     updateRhilouxPricing();
+
     switch ($(this).val()) {
       case 'small':
-        $('#rhiloux_chart-frame').removeClass('large');	
-        $('#rhiloux_chart-frame').addClass('small');
-        $('#rhiloux_chart').css({
+        frameEl.removeClass('large');	
+        frameEl.addClass('small');
+        chartEl.css({
           'background-image': 'url('+selectedArtSet.background['2x3']+')'
         });
         break;
         
       case 'medium':
-        $('#rhiloux_chart-frame').removeClass('small');	
-        $('#rhiloux_chart-frame').removeClass('large');
-        $('#rhiloux_chart').css({
+        frameEl.removeClass('small');	
+        frameEl.removeClass('large');
+        chartEl.css({
           'background-image': 'url('+selectedArtSet.background['3x4']+')'
         });
         break;
         
       case 'large':
-        $('#rhiloux_chart-frame').removeClass('small');	
-        $('#rhiloux_chart-frame').addClass('large');
-        $('#rhiloux_chart').css({
+        frameEl.removeClass('small');	
+        frameEl.addClass('large');
+        chartEl.css({
           'background-image': 'url('+selectedArtSet.background['2x3']+')'
         });
         break;

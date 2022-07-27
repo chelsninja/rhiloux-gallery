@@ -55,7 +55,7 @@ const ALEX_BURDEN = {
         "Livingstone"
       ]
     },
-    "frame": "black",
+    "frame": "espresso_walnut",
     "symbols": "earth",
     "theme": "earth"
   }]
@@ -88,7 +88,7 @@ const COSMIC_COLLAGE = {
       "color": "#FFFFFF",
       "family": ["Open Sans Condensed Light"]
     },
-    "frame": "white",
+    "frame": "black_flat",
     "symbols": "white",
     "theme": "water"
   }]
@@ -124,7 +124,7 @@ const CREATIVE_POWERR = {
         "Neonsign"
       ]
     },
-    "frame": "black",
+    "frame": "black_flat",
     "symbols": "white",
     "theme": "fire"
   }]
@@ -157,7 +157,7 @@ const ROVING_STARS = {
       "color": "#FFFFFF",
       "family": ["Aladin"]
     },
-    "frame": "black",
+    "frame": "gold_accent",
     "symbols": "white",
     "theme": "air"
   }]
@@ -193,7 +193,7 @@ const LUNARLILT = {
         "Amatic SC"
       ]
     },
-    "frame": "white",
+    "frame": "bronze_ornate",
     "symbols": "white",
     "theme": "earth"
   }]
@@ -229,7 +229,7 @@ const SUN_KEEP = {
         "Avant Garde Demi"
       ]
     },
-    "frame": "white",
+    "frame": "white_rustic",
     "symbols": "white",
     "theme": "water"
   }]
@@ -265,7 +265,7 @@ const CIAO_ZEN = {
         "Decohead"
       ]
     },
-    "frame": "black",
+    "frame": "gold_accent",
     "symbols": "black",
     "theme": "fire"
   }]
@@ -301,7 +301,7 @@ const SIERRA_ROSE_CREATIVE = {
         "Girlboss Script"
       ]
     },
-    "frame": "wood",
+    "frame": "gold_flat",
     "symbols": "white",
     "theme": "air"
   }]
