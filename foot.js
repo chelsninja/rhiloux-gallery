@@ -6,10 +6,10 @@ import {
 
 import {
   getFrameSizePrice,
-  getFrameSource,
+  getFrameBorder,
   getFrameTypePrice,
   getQuotePrice
-} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-price-sets.js?v=68041966682066295791658870259';
+} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-price-sets.js?v=84560309094975503201658964836';
 
 import {
   getSymbolSet,
@@ -99,32 +99,42 @@ $(function() {
 
   // Birth name input -- START
   $('#birth_name').keyup(function() {
-    let nameVal = $(this).val();
-    if (nameVal !== '') {
-      $('#rhiloux_chart h2').text(nameVal);
+    const nameVal = $(this).val();
+    const namePositionInputEl = $('#name_position');
+    const namePreviewEl = $('#rhiloux_chart h2');
+
+    if (nameVal !== '' && namePositionInputEl.val() === 'none') {
+      namePreviewEl.text(nameVal);
+      namePositionInputEl.val('top-center');
+      namePositionInputEl.change();
+    } else if (nameVal !== '') {
+      namePreviewEl.text(nameVal);
     } else {
-      $('#rhiloux_chart h2').remove();
-      $('#name_position').val('none');
-      $('#name_position').change();
+      namePreviewEl.remove();
+      namePositionInputEl.val('none');
+      namePositionInputEl.change();
     }
   });
   // Birth name input -- END
 
-  // Select frame color -- START
+  // Select frame border -- START
   $('#frame_type').change(function() {
     const frameEl = $('#rhiloux_chart-frame');
-    let frameSrc = getFrameSource($(this).val());
+    const frameBorder = getFrameBorder($(this).val());
 
     updateRhilouxPricing();
     frameEl.removeClass('no-frame');
 
-    if (frameSrc) {
-      frameEl.css({'border-image-source': 'url("'+frameSrc+'")'});
+    if (frameBorder) {
+      frameEl.css({
+        'border-image': 'url("'+frameBorder.source+'") '+frameBorder.width,
+        'border-width': frameBorder.width+'px'
+      });
     } else {
       frameEl.addClass('no-frame');
     }
   });
-  // Select frame color -- END
+  // Select frame border -- END
 
   // Select frame size -- START
   $('#frame_size').change(function() {

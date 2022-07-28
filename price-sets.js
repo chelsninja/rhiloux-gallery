@@ -18,8 +18,8 @@ export function getQuotePrice(size, type) {
   return '$'+(CHART_PRICING[size].base+CHART_PRICING[size][tier]).toFixed(2);
 }
 
-export function getFrameSource(key) {
-  return key in FRAME_SOURCES ? FRAME_SOURCES[key] : undefined;
+export function getFrameBorder(key) {
+  return key in FRAME_BORDERS ? FRAME_BORDERS[key] : undefined;
 }
 
 ///////////////////////////
@@ -61,15 +61,45 @@ const FRAME_TIERS = {
   ]
 };
 
-const FRAME_SOURCES = {
-  "black_flat": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/blackflat.png?v=1658867487",
-  "bronze_ornate": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/bronzeornate.png?v=1658869398",
-  "espresso_rustic": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/espressorustic.png?v=1658869433",
-  "espresso_walnut": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/espressowalnut.png?v=1658869552",
-  "gold_flat": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/goldflatmetal.png?v=1658869605",
-  "gold_accent": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/goldaccent.png?v=1658869750",
-  "silver_flat": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/silverflatmetal.png?v=1658869789",
-  "silver_cured": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/silvercurved.png?v=1658869856",
-  "white_flat": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/whiteflat.png?v=1658869978",
-  "white_rustic": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/whiterustic.png?v=1658870013"
-}
+const FRAME_BORDERS = {
+  "black_flat": {
+    "source": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/blackflat.png?v=1658867487",
+    "width": 30
+  },
+  "bronze_ornate": {
+    "source": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/bronzeornate.png?v=1658869398",
+    "width": 30
+  },
+  "espresso_rustic": {
+    "source": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/espressorustic.png?v=1658869433",
+    "width": 60
+  },
+  "espresso_walnut": {
+    "source": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/espressowalnut.png?v=1658869552",
+    "width": 50
+  },
+  "gold_flat": {
+    "source": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/goldflatmetal.png?v=1658869605",
+    "width": 20
+  },
+  "gold_accent": {
+    "source": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/goldaccent.png?v=1658869750",
+    "width": 30
+  },
+  "silver_flat": {
+    "source": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/silverflatmetal.png?v=1658869789",
+    "width": 20
+  },
+  "silver_cured": {
+    "source": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/silvercurved.png?v=1658869856",
+    "width": 40
+  },
+  "white_flat": {
+    "source": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/whiteflat.png?v=1658869978",
+    "width": 50
+  },
+  "white_rustic": {
+    "source": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/whiterustic.png?v=1658870013",
+    "width": 60
+  }
+};
