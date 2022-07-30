@@ -29,6 +29,12 @@ z-index: 1;
     position: relative;
   }
 
+  @media (max-width: 1024px) {
+    #rhiloux_chart-frame {
+      margin: 40px auto 0;
+    }
+  }
+
   #rhiloux_chart-frame.no-frame {
     border-image: none !important;
   }
@@ -46,6 +52,23 @@ z-index: 1;
   #rhiloux_chart-frame.large {
     width: 600px;
     height: 900px;
+  }
+
+  @media (max-width: 767px) {
+    #rhiloux_chart-frame {
+      width: 270px;
+      height: 360px;
+      border-width: 15px;
+      border-image-slice: 15;
+    }
+    #rhiloux_chart-frame.small {
+      width: 180px;
+      height: 270px;
+    }
+    #rhiloux_chart-frame.large {
+      width: 300px;
+      height: 450px;
+    }
   }
 
   /* CHART */

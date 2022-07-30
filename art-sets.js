@@ -35,8 +35,8 @@ const ALEX_BURDEN = {
     },
     "axis": "#000000",
     "background": {
-      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Astral-Cairns--2x3.jpg?v=1649034491",
-      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Astral-Cairns--3x4.jpg?v=1649034491"
+      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Astral-Cairns--wm2x3.jpg?v=1659128380",
+      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Astral-Cairns--wm3x4.jpg?v=1659128380"
     },
     "chart": {
       "background": "transparent",
@@ -71,8 +71,8 @@ const COSMIC_COLLAGE = {
     },
     "axis": "#FFFFFF",
     "background": {
-      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Cosmic-Collage--2x3.jpg?v=1654882329",
-      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Cosmic-Collage--3x4.jpg?v=1654882329"
+      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Cosmic-Collage--wm2x3.jpg?v=1659128931",
+      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Cosmic-Collage--wm3x4.jpg?v=1659128931"
     },
     "chart": {
       "background": "transparent",
@@ -104,8 +104,8 @@ const CREATIVE_POWERR = {
     },
     "axis": "#FFFFFF",
     "background": {
-      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Creative-Powerr--2x3.jpg?v=1654899769",
-      "3x4": ""
+      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Creative-Powerr--wm2x3.jpg?v=1659130083",
+      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Creative-Powerr--wm3x4.png?v=1659130083"
     },
     "chart": {
       "background": "transparent",
@@ -140,8 +140,8 @@ const ROVING_STARS = {
     },
     "axis": "#FFFFFF",
     "background": {
-      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Cosmic-Duality--2x3.jpg?v=1652818536",
-      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Cosmic-Duality--3x4.jpg?v=1649034460"
+      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Cosmic-Duality--wm2x3.jpg?v=1659129415",
+      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Cosmic-Duality--wm3x4.jpg?v=1659129415"
     },
     "chart": {
       "background": "transparent",
@@ -173,18 +173,18 @@ const LUNARLILT = {
     },
     "axis": "#FFFFFF",
     "background": {
-      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Cosmic-Serpent--2x3.jpg?v=1649033542",
-      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Cosmic-Serpent--3x4.jpg?v=1649033542"
+      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Cosmic-Serpent--wm2x3.jpg?v=1659129569",
+      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Cosmic-Serpent--wm3x4.jpg?v=1659129569"
     },
     "chart": {
       "background": "transparent",
-      "color": "#FFFFFF"
+      "color": "#000000"
     },
     "element": {
-      "air": "#D9B231",
-      "earth": "#7E8A70",
-      "fire": "#A66C67",
-      "water": "#9A8374"
+      "air": "#ECD4AA",
+      "earth": "#B2B185",
+      "fire": "#D3AE81",
+      "water": "#B89C82"
     },
     "font": {
       "color": "#FFFFFF",
@@ -209,8 +209,8 @@ const SUN_KEEP = {
     },
     "axis": "#FFFFFF",
     "background": {
-      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Flow--2x3.jpg?v=1654882482",
-      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Flow--3x4.jpg?v=1654882482"
+      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Flow--wm2x3.jpg?v=1659130289",
+      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Flow--wm3x4.jpg?v=1659130289"
     },
     "chart": {
       "background": "rgba(255, 254, 252, 0.15)",
@@ -245,8 +245,8 @@ const CIAO_ZEN = {
     },
     "axis": "#84591D",
     "background": {
-      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Magic-Within-You--2x3.jpg?v=1649033042",
-      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Magic-Within-You--3x4.jpg?v=1649033042"
+      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Magic-Within-You--wm2x3.jpg?v=1659131588",
+      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Magic-Within-You--wm3x4.jpg?v=1659131588"
     },
     "chart": {
       "background": "rgb(132, 89, 29, 0.6)",
@@ -281,8 +281,8 @@ const SIERRA_ROSE_CREATIVE = {
     },
     "axis": "#FFFFFF",
     "background": {
-      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Vision-Rising--2x3.jpg?v=1652818347",
-      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Vision-Rising--3x4.jpg?v=1652818346"
+      "2x3": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Vision-Rising--wm2x3.jpg?v=1659132865",
+      "3x4": "https://cdn.shopify.com/s/files/1/0583/7963/2697/files/Vision-Rising--wm3x4.jpg?v=1659132864"
     },
     "chart": {
       "background": "transparent",

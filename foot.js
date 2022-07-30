@@ -2,7 +2,7 @@ import {
   getArtist,
   getArtListByElement,
   getArtSet,
-} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-art-sets.js?v=9468345930451116111658874497';
+} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-art-sets.js?v=39324720906671648561659133145';
 
 import {
   getFrameSizePrice,
@@ -121,14 +121,16 @@ $(function() {
   $('#frame_type').change(function() {
     const frameEl = $('#rhiloux_chart-frame');
     const frameBorder = getFrameBorder($(this).val());
+    const isMobile = $(window).width() < 767;
+    const frameWidth = isMobile ? frameBorder.width / 2 : frameBorder.width;
 
     updateRhilouxPricing();
     frameEl.removeClass('no-frame');
 
     if (frameBorder) {
       frameEl.css({
-        'border-image': 'url("'+frameBorder.source+'") '+frameBorder.width,
-        'border-width': frameBorder.width+'px'
+        'border-image': 'url("'+frameBorder.source+'") '+frameWidth,
+        'border-width': frameWidth+'px'
       });
     } else {
       frameEl.addClass('no-frame');

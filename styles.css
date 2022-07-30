@@ -29,6 +29,18 @@
   padding-top: 5px;
 }
 
+@media (max-width: 1024px) and (min-width: 768px) {
+  #rhiloux_form_wrapper {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  #rhiloux_form_wrapper {
+    padding: 0 15px;
+  }
+}
+
 
 /***********************
 ** RHILOUX BIRTH FORM **
@@ -77,6 +89,14 @@ fieldset#location_set label {
 #rhiloux_form .button {
   margin-top: 20px;
   text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  fieldset#date_set,
+  fieldset#time_set,
+  fieldset#location_set {
+    width: 100%;
+  }
 }
 
 
@@ -179,4 +199,10 @@ fieldset#fontFamily_set {
 
 #rhiloux_checkout-table .footer-row {
   border-top: 3px double #103948;
+}
+
+@media (max-width: 767px) {
+  #rhiloux_checkout-table th:first-child {
+    width: 35%;
+  }
 }
