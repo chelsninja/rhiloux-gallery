@@ -2,7 +2,7 @@ import {
   getArtist,
   getArtListByElement,
   getArtSet,
-} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-art-sets.js?v=39324720906671648561659133145';
+} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-art-sets.js?v=78361714649410350491660077771';
 
 import {
   getFrameSizePrice,
@@ -122,12 +122,13 @@ $(function() {
     const frameEl = $('#rhiloux_chart-frame');
     const frameBorder = getFrameBorder($(this).val());
     const isMobile = $(window).width() < 767;
-    const frameWidth = isMobile ? frameBorder.width / 2 : frameBorder.width;
-
+    
     updateRhilouxPricing();
+    updateCheckoutData();
     frameEl.removeClass('no-frame');
-
+    
     if (frameBorder) {
+      const frameWidth = isMobile ? frameBorder.width / 2 : frameBorder.width;
       frameEl.css({
         'border-image': 'url("'+frameBorder.source+'") '+frameWidth,
         'border-width': frameWidth+'px'
@@ -144,6 +145,7 @@ $(function() {
     const chartEl = $('#rhiloux_chart');
 
     updateRhilouxPricing();
+    updateCheckoutData();
 
     switch ($(this).val()) {
       case 'small':
@@ -191,8 +193,8 @@ $(function() {
     $('#font_family').empty();
     $.each(selectedArtSet.font.family, function (i, font) {
       $('#font_family').append($('<option>', { 
-          value: font,
-          text: 'Type '+(i+1)
+        value: font,
+        text: 'Type '+(i+1)
       }));
     });
 
@@ -231,7 +233,9 @@ $(function() {
     });
     $('#frame_type').val(selectedArtSet.frame);
     $('#frame_type').change();
+
     updateRhilouxPricing();
+    updateCheckoutData();
   });
   // Select art set -- END
 
@@ -552,5 +556,21 @@ $(function() {
     quotePriceEl.text(getQuotePrice(frameSize, frameType));
   }
   // Update itemized quote pricing -- END
+
+  // Update checkout data -- START
+  function updateCheckoutData() {
+    const frameSizeKey = $('#frame_size option:selected').text().split(' ')[0],
+          frameTypeKey = $('#frame_type option:selected').text().split(' ').slice(0, 2).join(' ').replace('(', ''),
+          variantId = $('#checkout_variant option:contains('+frameSizeKey+'):contains('+frameTypeKey+')').attr('value');
+
+    $('#checkout_btn').attr('data-product-id', selectedArtSet.shopifyId);
+    $('#checkout_variant').attr('data-product-id', selectedArtSet.shopifyId);
+
+    $('#checkout_variant input').val(variantId);
+    $('#checkout_variant input').change();
+    $('#checkout_variant select').val(variantId);
+    $('#checkout_variant select').change();
+  }
+  // Update checkout data -- END
 
 });

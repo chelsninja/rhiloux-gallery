@@ -29,6 +29,7 @@ const ALEX_BURDEN = {
   "artist": "Alex Burden",
   "artsets": [{
     "name": "Astral Cairns",
+    "shopifyId": "6849756463161",
     "aspects": {
       "red": "rgb(138, 22, 7)",
       "green": "rgb(38, 59, 36)"
@@ -65,6 +66,7 @@ const COSMIC_COLLAGE = {
   "artist": "Cosmic Collage",
   "artsets": [{
     "name": "Water Portal",
+    "shopifyId": "6849752989753",
     "aspects": {
       "red": "rgb(134, 10, 127)",
       "green": "rgb(182, 235, 230)"
@@ -98,6 +100,7 @@ const CREATIVE_POWERR = {
   "artist": "Creative Powerr",
   "artsets": [{
     "name": "Connected With The Cosmos",
+    "shopifyId": "6849761640505",
     "aspects": {
       "red": "rgb(208, 71, 33)",
       "green": defaultAspectGreen
@@ -134,6 +137,7 @@ const ROVING_STARS = {
   "artist": "Roving Stars",
   "artsets": [{
     "name": "Cosmic Duality",
+    "shopifyId": "6800779935801",
     "aspects": {
       "red": "rgb(180, 109, 106)",
       "green": "rgb(84, 130, 108)"
@@ -167,6 +171,7 @@ const LUNARLILT = {
   "artist": "LUNARLILT",
   "artsets": [{
     "name": "Cosmic Serpent",
+    "shopifyId": "6851920560185",
     "aspects": {
       "red": "rgb(189, 157, 132)",
       "green": "rgb(183, 172, 126)"
@@ -203,6 +208,7 @@ const SUN_KEEP = {
   "artist": "Sun Keep",
   "artsets": [{
     "name": "Flow",
+    "shopifyId": "6849771896889",
     "aspects": {
       "red": "rgb(0, 62, 82)",
       "green": "rgb(159, 207, 202)"
@@ -239,6 +245,7 @@ const CIAO_ZEN = {
   "artist": "Ciao Zen",
   "artsets": [{
     "name": "Magic Within You",
+    "shopifyId": "6849784807481",
     "aspects": {
       "red": "rgb(107, 45, 9)",
       "green": "rgb(128, 118, 77)"
@@ -275,6 +282,7 @@ const SIERRA_ROSE_CREATIVE = {
   "artist": "Sierra Rose Creative",
   "artsets": [{
     "name": "Vision Rising",
+    "shopifyId": "6849745879097",
     "aspects": {
       "red": "rgb(113, 69, 81)",
       "green": "rgb(102, 119, 110)"
@@ -311,6 +319,7 @@ const ARTSET_EXAMPLE = {
   "artist": "",
   "artsets": [{
     "name": "",
+    "shopifyId": "",
     "aspects": {
       "red": "",
       "green": ""
