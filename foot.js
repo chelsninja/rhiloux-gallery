@@ -2,7 +2,7 @@ import {
   getArtist,
   getArtListByElement,
   getArtSet,
-} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-art-sets.js?v=78361714649410350491660077771';
+} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-art-sets.js?v=39324720906671648561660600975';
 
 import {
   getFrameSizePrice,
@@ -27,6 +27,7 @@ $(function() {
 
   // Init global variables
   let selectedArtSet,
+    selectedVariantId,
     submissionCount = 0,
     birthCity = undefined,
     birthState = undefined,
@@ -59,9 +60,41 @@ $(function() {
     event.preventDefault();
     submissionCount++;
     getSelectedLocationData();
-    updateRhilouxPricing();
+    setupEcommerce();
   });
   // Birth Data Form on Submit -- END
+
+  // Checkout Product on Click -- START
+  $('#checkout_btn').click(function() {
+    const birthDate = $('#birth_month').val()+'-'+$('#birth_day').val()+'-'+$('#birth_year').val(),
+          birthTime = $('#birth_hour').val()+':'+$('#birth_minute').val()+' '+$('#birth_ampm').val();
+
+    let formData = {
+      'items': [{
+        'id': selectedVariantId,
+        'quantity': 1,
+        'properties': {
+          'Birth time': birthDate+', '+birthTime,
+          'Birth location': birthLatitude+', '+birthLongitude+', '+birthTimezone,
+          'Display name': $('#birth_name').val(),
+          'Font family': $('#font_family').val(),
+          'Name position': $('#name_position').val(),
+          'Location/time position': $('#location-time_position').val(),
+          'Location format': $('#location_format').val(),
+          'Time format': $('#time_format').val()
+        }
+      }]
+    };
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(formData)
+    })
+    .then(response => { return response.json(); })
+    .then(_data => { window.location.href = '/checkout'; })
+    .catch(error => { console.error('Error:', error); });
+  });
+  // Checkout Product on Click -- END
 
   // Autocomplete location input -- START
   $('#birth_location').keyup(function() {
@@ -118,13 +151,12 @@ $(function() {
   // Birth name input -- END
 
   // Select frame border -- START
-  $('#frame_type').change(function() {
+  $('#frame_type').change(function(e) {
     const frameEl = $('#rhiloux_chart-frame');
     const frameBorder = getFrameBorder($(this).val());
     const isMobile = $(window).width() < 767;
     
-    updateRhilouxPricing();
-    updateCheckoutData();
+    setupEcommerce();
     frameEl.removeClass('no-frame');
     
     if (frameBorder) {
@@ -140,12 +172,11 @@ $(function() {
   // Select frame border -- END
 
   // Select frame size -- START
-  $('#frame_size').change(function() {
+  $('#frame_size').change(function(e) {
     const frameEl = $('#rhiloux_chart-frame');
     const chartEl = $('#rhiloux_chart');
 
-    updateRhilouxPricing();
-    updateCheckoutData();
+    setupEcommerce();
 
     switch ($(this).val()) {
       case 'small':
@@ -234,8 +265,7 @@ $(function() {
     $('#frame_type').val(selectedArtSet.frame);
     $('#frame_type').change();
 
-    updateRhilouxPricing();
-    updateCheckoutData();
+    setupEcommerce();
   });
   // Select art set -- END
 
@@ -559,18 +589,24 @@ $(function() {
 
   // Update checkout data -- START
   function updateCheckoutData() {
-    const frameSizeKey = $('#frame_size option:selected').text().split(' ')[0],
-          frameTypeKey = $('#frame_type option:selected').text().split(' ').slice(0, 2).join(' ').replace('(', ''),
-          variantId = $('#checkout_variant option:contains('+frameSizeKey+'):contains('+frameTypeKey+')').attr('value');
+    const artistKey = $('#art_set option:selected').attr('data-artist').replace(/\s+/g, '-'),
+          productKey = $('#art_set').val().replace(/\s+/g, '-')+'-by-'+artistKey,
+          frameSizeKey = $('#frame_size option:selected').text().split(' ')[0],
+          frameTypeKey = $('#frame_type option:selected').text().split(' ').slice(0, 2).join(' ').replace('(', '');
 
-    $('#checkout_btn').attr('data-product-id', selectedArtSet.shopifyId);
-    $('#checkout_variant').attr('data-product-id', selectedArtSet.shopifyId);
-
-    $('#checkout_variant input').val(variantId);
-    $('#checkout_variant input').change();
-    $('#checkout_variant select').val(variantId);
-    $('#checkout_variant select').change();
+    $.getJSON(window.Shopify.routes.root + 'products/'+productKey+'.js', function(product) {
+      selectedVariantId = product.variants.find(v => ~v.title.indexOf(frameSizeKey) && ~v.title.indexOf(frameTypeKey)).id;
+    });
+    
+    $('#checkout_btn').removeAttr('disabled');
   }
   // Update checkout data -- END
+
+  // Helper Functions -- START
+  function setupEcommerce() {
+    updateRhilouxPricing();
+    updateCheckoutData();    
+  }
+  // Helper Functions -- END
 
 });
