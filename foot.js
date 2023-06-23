@@ -1,3 +1,5 @@
+var astroToken = btoa("617480:663faf8b929303aca500ee921dd946e3");
+
 import {
   getArtist,
   getArtListByElement,
@@ -9,7 +11,7 @@ import {
   getFrameBorder,
   getFrameTypePrice,
   getQuotePrice
-} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-price-sets.js?v=84560309094975503201658964836';
+} from '//cdn.shopify.com/s/files/1/0583/7963/2697/t/2/assets/rhiloux-price-sets.js?v=14862086708626139741687480727';
 
 import {
   getSymbolSet,
@@ -74,8 +76,10 @@ $(function() {
         'id': selectedVariantId,
         'quantity': 1,
         'properties': {
-          'Birth time': birthDate+', '+birthTime,
-          'Birth location': birthLatitude+', '+birthLongitude+', '+birthTimezone,
+          'Birth date/time': birthDate+', '+birthTime,
+          'Birth latitude': birthLatitude,
+          'Birth longitude': birthLongitude,
+          'Birth timezone': birthTimezone,
           'Display name': $('#birth_name').val(),
           'Font family': $('#font_family').val(),
           'Name position': $('#name_position').val(),
@@ -97,29 +101,31 @@ $(function() {
   // Checkout Product on Click -- END
 
   // Autocomplete location input -- START
+  
   $('#birth_location').keyup(function() {
+    console.log(`Searching`);
     let search = $(this).val();
-    if (search !== '') {
+    if (search !== '' && search.length > 1) {
       $.ajax({
-        url: 'https://open.mapquestapi.com/geocoding/v1/address?key=4dtz67PB06OMgtZSF3p4HhOFcpzxmwal',
-        type: 'POST',
+        url: `http://www.mapquestapi.com/search/v3/prediction?q=${search}&key=bT9cj6KnUHojdWAg5ssrQXlMS7f1Osq8&collection=adminArea`,
+        type: 'GET',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
-        data: {
-          'location': search
-        },
         success: function(response) {
           let query = [];
-          response.results[0].locations.forEach(function(geo) {
-            let hood = geo.adminArea6,
-              city = geo.adminArea5,
-              county = geo.adminArea4,
-              state = geo.adminArea3,
-              country = geo.adminArea1,
-              location = [hood, city, county, state, country].filter(Boolean).join(' / ');
-            query.push(location);
-          });
+        for(let geo of response.results.filter(el => el && el.recordType == "city")){
+          query.push([geo.place.properties.city, geo.place.properties.state, geo.place.properties.country].filter(el => el && el.trim().length > 0).join(", "));
+        }
+        //  response.results[0].locations.forEach(function(geo) {
+      //      let hood = geo.adminArea6,
+       //       city = geo.adminArea5,
+       //       county = geo.adminArea4,
+       //       state = geo.adminArea3,
+      //        country = geo.adminArea1,
+      //        location = [hood, city, county, state, country].filter(Boolean).join(' / ');
+      //      query.push(location);
+      //    });
           $('#birth_location').autocomplete({
             source: [...new Set(query)],
             autofocus: true
@@ -339,15 +345,8 @@ $(function() {
   function getSelectedLocationData() {
     let location = $('#birth_location').val();
     $.ajax({
-      url: 'https://open.mapquestapi.com/geocoding/v1/address?key=4dtz67PB06OMgtZSF3p4HhOFcpzxmwal',
-      type: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      data: {
-        'location': location,
-        'maxResults': 1
-      },
+      url: `https://www.mapquestapi.com/geocoding/v1/address?key=bT9cj6KnUHojdWAg5ssrQXlMS7f1Osq8&location=${encodeURIComponent(location)}`,
+      type: 'GET',
       success: function(response) {
         birthCity = response.results[0].locations[0].adminArea5;
         birthState = response.results[0].locations[0].adminArea3;
@@ -366,7 +365,7 @@ $(function() {
       type: 'POST',
       timeout: 0,
       headers: {
-        'Authorization': 'Basic NjE3NDgwOjY2M2ZhZjhiOTI5MzAzYWNhNTAwZWU5MjFkZDk0NmUz',
+        'Authorization': `Basic ${astroToken}`,
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       data: {
@@ -404,7 +403,7 @@ $(function() {
       type: 'POST',
       timeout: 0,
       headers: {
-        'Authorization': 'Basic NjE3NDgwOjY2M2ZhZjhiOTI5MzAzYWNhNTAwZWU5MjFkZDk0NmUz',
+        'Authorization': `Basic ${astroToken}`,
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       data: {
@@ -485,7 +484,7 @@ $(function() {
       type: 'POST',
       timeout: 0,
       headers: {
-        'Authorization': 'Basic NjE3NDgwOjY2M2ZhZjhiOTI5MzAzYWNhNTAwZWU5MjFkZDk0NmUz',
+        'Authorization': `Basic ${astroToken}`,
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       data: {
@@ -582,7 +581,7 @@ $(function() {
     sizeLabelEl.text(frameSizeTxt);
     typeLabelEl.text(frameTypeTxt);
     sizePriceEl.text(getFrameSizePrice(frameSize));
-    typePriceEl.text(getFrameTypePrice(frameSize, frameType));
+    typePriceEl.text('+ '+getFrameTypePrice(frameSize, frameType));
     quotePriceEl.text(getQuotePrice(frameSize, frameType));
   }
   // Update itemized quote pricing -- END

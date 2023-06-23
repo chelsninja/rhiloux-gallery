@@ -1,7 +1,4 @@
-/******************
-** RHILOUX FORMS **
-*******************/
-
+/****************** ** RHILOUX FORMS ** *******************/
 #rhiloux_form_wrapper {
   padding-left: 9vw;
   padding-right: 3vw;
@@ -20,7 +17,7 @@
   font-family: inherit;
   font-size: 15px;
   line-height: 40px;
-  border: 2px solid #2d2d2d;
+  border: 2px solid #2d2d2d !important;
   height: 40px;
   padding: 0 10px;
 }
@@ -41,11 +38,7 @@
   }
 }
 
-
-/***********************
-** RHILOUX BIRTH FORM **
-************************/
-
+/*********************** ** RHILOUX BIRTH FORM ** ************************/
 #rhiloux_form {
   display: flex;
   justify-content: space-between;
@@ -92,6 +85,7 @@ fieldset#location_set label {
 }
 
 @media (max-width: 767px) {
+
   fieldset#date_set,
   fieldset#time_set,
   fieldset#location_set {
@@ -99,11 +93,7 @@ fieldset#location_set label {
   }
 }
 
-
-/*************************
-** RHILOUX PREVIEW FORM **
-**************************/
-
+/************************* ** RHILOUX PREVIEW FORM ** **************************/
 #preview_form {
   position: relative;
   top: 15px;
@@ -116,7 +106,7 @@ fieldset#location_set label {
   margin-top: 36px
 }
 
-#preview_form > legend {
+#preview_form>legend {
   position: absolute;
   top: -15px;
   left: 12px;
@@ -163,11 +153,7 @@ fieldset#fontFamily_set {
   margin: 0;
 }
 
-
-/*************************
-** RHILOUX QUOTE TABLE **
-**************************/
-
+/************************* ** RHILOUX QUOTE TABLE ** **************************/
 #rhiloux_checkout-table {
   background-color: rgba(128, 89, 122, 0.25);
   margin-top: 40px;
@@ -205,4 +191,9 @@ fieldset#fontFamily_set {
   #rhiloux_checkout-table th:first-child {
     width: 35%;
   }
+}
+
+/**************************** ** RHILOUX CHECKOUT BUTTON ** *****************************/
+#checkout_btn[disabled] {
+  cursor: not-allowed !important;
 }
