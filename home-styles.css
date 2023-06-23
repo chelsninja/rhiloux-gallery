@@ -1,0 +1,29 @@
+/** PARALAX SECTION **/
+@media screen and (max-width: 767px) {
+  #parallax_mockup img {
+    object-position: 25% 50% !important;
+  }
+}
+
+/** SLIDESHOW SECTION **/
+#slideshow_preview .glider-dots {
+  bottom: -20px;
+}
+
+#slideshow_preview .glider-prev {
+  left: -30px;
+}
+
+#slideshow_preview .glider-next {
+  right: -30px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  #slideshow_preview .glider-prev {
+    left: 0px;
+  }
+
+  #slideshow_preview .glider-next {
+    right: 0px;
+  }
+}
