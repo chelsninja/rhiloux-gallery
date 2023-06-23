@@ -1,0 +1,144 @@
+<!-- HTML CODE (START) -->
+<div id="rhiloux_chart-frame" class="no-frame">
+  <div id="rhiloux_chart"></div>
+</div>
+<!-- HTML CODE (END) -->
+
+<!-- (frame notes)
+  [bleed] 1/4 inch // 300 pixels
+  [small] 12x18 inch // 2:3 // 3600 x 5400 pixels
+  [default] 18x24 inch // 3:4 // 5400 x 7200 pixels
+  [large] 20x30 inch // 2:3 // 6000 x 9000 pixels
+  -- (pagefly styles)
+  position: sticky;
+  top: 10%;
+  z-index: 1;
+  -->
+
+<!-- CSS CODE (START) -->
+<style>
+  /* FRAME */
+
+  #rhiloux_chart-frame {
+    width: 540px;
+    height: 720px;
+    background-color: #444;
+    border: 2px solid #000;
+    position: relative;
+  }
+
+  @media (max-width: 1024px) {
+    #rhiloux_chart-frame {
+      margin: 40px auto 0;
+    }
+  }
+
+  #rhiloux_chart-frame.no-frame {
+    border-image: none !important;
+  }
+
+  #rhiloux_chart-frame.no-frame:before,
+  #rhiloux_chart-frame.no-frame:after {
+    display: none;
+  }
+
+  #rhiloux_chart-frame.small {
+    width: 360px;
+    height: 540px;
+  }
+
+  #rhiloux_chart-frame.large {
+    width: 600px;
+    height: 900px;
+  }
+
+  @media (max-width: 767px) {
+    #rhiloux_chart-frame {
+      width: 270px;
+      height: 360px;
+      border-width: 15px;
+      border-image-slice: 15;
+    }
+
+    #rhiloux_chart-frame.small {
+      width: 180px;
+      height: 270px;
+    }
+
+    #rhiloux_chart-frame.large {
+      width: 300px;
+      height: 450px;
+    }
+  }
+
+  /* CHART */
+
+  #rhiloux_chart {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #rhiloux_chart-astrology-radix-planets text {
+    display: none;
+  }
+
+  /* TEXT */
+
+  #rhiloux_chart h2,
+  #rhiloux_chart h3 {
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    font-family: inherit;
+    color: inherit;
+  }
+
+  #rhiloux_chart h2 {
+    font-size: 1.9em;
+  }
+
+  #rhiloux_chart h2.p--top-center {
+    top: 9%;
+    text-align: center;
+  }
+
+  #rhiloux_chart h2.p--bottom-center,
+  #rhiloux_chart h2.p--bottom-left,
+  #rhiloux_chart h2.p--bottom-right {
+    bottom: 11%;
+  }
+
+  #rhiloux_chart h3 {
+    font-size: 1.3em;
+  }
+
+  #rhiloux_chart h3:first-of-type {
+    bottom: 3%;
+  }
+
+  #rhiloux_chart h3+h3 {
+    bottom: 7%;
+  }
+
+  .p--bottom-center {
+    text-align: center;
+  }
+
+  .p--bottom-left {
+    text-align: left;
+    left: 20px;
+  }
+
+  .p--bottom-right {
+    text-align: right;
+    right: 20px;
+  }
+</style>
+<!-- CSS CODE (END) -->

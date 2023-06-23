@@ -1,0 +1,98 @@
+/****************** ** RHILOUX FORMS ** *******************/
+#rhiloux_form_wrapper {
+  padding-left: 9vw;
+  padding-right: 3vw;
+}
+
+#rhiloux_form_wrapper fieldset {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 10px 15px;
+  border: 1px solid #939AA7;
+}
+
+#rhiloux_form_wrapper input,
+#rhiloux_form_wrapper select {
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 40px;
+  border: 2px solid #2d2d2d !important;
+  height: 40px;
+  padding: 0 10px;
+}
+
+#rhiloux_form_wrapper .caption {
+  padding-top: 5px;
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  #rhiloux_form_wrapper {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  #rhiloux_form_wrapper {
+    padding: 0 15px;
+  }
+}
+
+/*********************** ** RHILOUX BIRTH FORM ** ************************/
+#rhiloux_form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#rhiloux_form legend {
+  padding: 0 5px;
+}
+
+#rhiloux_form label {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+#rhiloux_form input[type="number"] {
+  padding-right: 0;
+}
+
+#rhiloux_form select {
+  min-width: 30%;
+}
+
+#rhiloux_form .button {
+  margin-top: 30px;
+  text-transform: uppercase;
+}
+
+fieldset#artist_set {
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+fieldset#artist_set select {
+  min-width: 80%;
+}
+
+fieldset#date_set,
+fieldset#time_set {
+  width: 49%;
+  margin-top: 10px;
+}
+
+fieldset#location_set {
+  width: 100%;
+  margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+
+  fieldset#date_set,
+  fieldset#time_set {
+    width: 100%;
+  }
+}
