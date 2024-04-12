@@ -107,7 +107,8 @@ $(function() {
     let search = $(this).val();
     if (search !== '' && search.length > 1) {
       $.ajax({
-        url: `http://www.mapquestapi.com/search/v3/prediction?q=${search}&key=bT9cj6KnUHojdWAg5ssrQXlMS7f1Osq8&collection=adminArea`,
+        url: 
+`http://www.mapquestapi.com/search/v3/prediction?q=${search}&key=xXkvFLWyb7krTZwzZkj8qS3SZARMBYPD&collection=adminArea`,
         type: 'GET',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
