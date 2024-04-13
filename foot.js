@@ -346,7 +346,7 @@ $(function() {
   function getSelectedLocationData() {
     let location = $('#birth_location').val();
     $.ajax({
-      url: `https://www.mapquestapi.com/geocoding/v1/address?key=bT9cj6KnUHojdWAg5ssrQXlMS7f1Osq8&location=${encodeURIComponent(location)}`,
+      url: `https://www.mapquestapi.com/geocoding/v1/address?key=xXkvFLWyb7krTZwzZkj8qS3SZARMBYPD&location=${encodeURIComponent(location)}`,
       type: 'GET',
       success: function(response) {
         birthCity = response.results[0].locations[0].adminArea5;
